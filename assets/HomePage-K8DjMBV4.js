@@ -1,0 +1,1 @@
+import{j as e,N as s}from"./index-DVZscUen.js";const a=()=>e.jsxs("div",{children:[e.jsx("h1",{children:"HomePage"}),e.jsx(s,{to:"/teachers",className:"link",children:"Get started"})]});export{a as default};
