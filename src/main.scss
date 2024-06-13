@@ -1,0 +1,50 @@
+@use 'scss/reset';
+// @use 'assets/scss/mixins';
+@use 'scss/variables';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 320px;
+    min-height: 100vh;
+    color: var(--main-dark);
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+
+    // margin: 0;
+    // display: flex;
+    // place-items: center;
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p {
+//     margin: 0;
+// }
+
+// a {
+//     text-decoration: none;
+// }
+
+// ul {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+// }
+
+// img {
+//     display: block;
+// }
+
+// button {
+//     cursor: pointer;
+//     border: none;
+//     padding: 0;
+// }

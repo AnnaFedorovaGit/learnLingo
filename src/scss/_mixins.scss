@@ -1,0 +1,54 @@
+// @use 'variables' as var;
+
+
+// @mixin circle-frame($width, $height: $width, $is-circle: false) {
+//     width: $width;
+//     height: $height;
+
+//     @if $is-circle {
+//         border-radius: 50%;
+//         overflow: hidden;
+//     }
+
+//     img {
+//         object-fit: cover;
+//         object-position: top center;
+//     }
+// }
+
+// @mixin scroll-bar {
+//     &::-webkit-scrollbar {
+//         width: 14px;
+//     }
+
+//     &::-webkit-scrollbar-track {
+//         background-color: transparent;
+//         border-radius: 100px;
+
+//         &:hover {
+//             background-color: aqua;
+//         }
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//         background-color: #fff;
+//         background-clip: content-box;
+//         border: 5px solid transparent;
+
+//         &:hover {
+//             background-color: red;
+//         }
+//     }
+// }
+
+// example:
+// @mixin corner-icon($name, $top-or-bottom, $left-or-right) {
+//     .icon-#{$name} {
+//         background-image: url("/icons/#{$name}.svg");
+//         position: absolute;
+//         #{$top-or-bottom}: 0;
+//         #{$left-or-right}: 0;
+//     }
+// }
+
+// @include corner-icon("mail", top, left);
