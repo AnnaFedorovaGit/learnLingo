@@ -39,12 +39,14 @@ body {
 //     margin: 0;
 // }
 
-// img {
-//     display: block;
-// }
+img {
+    max-width: 100%;
+    height: auto;
+    // display: block;
+}
 
-// button {
-//     cursor: pointer;
+button {
+    cursor: pointer;
 //     border: none;
 //     padding: 0;
-// }
+}

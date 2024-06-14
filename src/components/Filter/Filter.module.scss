@@ -1,0 +1,34 @@
+.filter {
+    &__form {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 129%;
+        color: var(--gray);
+        margin-bottom: 8px;
+    }
+
+    &__inputContainer {
+        padding: 16px 18px;
+        height: 48px;
+        width: 221px;
+        border-radius: 14px;
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        width: 165px;
+
+        &::placeholder {
+            font-size: 18px;
+            line-height: 111%;
+        }
+    }
+}

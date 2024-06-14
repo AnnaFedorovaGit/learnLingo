@@ -9,6 +9,8 @@
     "sourceMap": true,
     "outDir": "./dist",
 
+    "types": ["vite-plugin-svgr/client"],
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

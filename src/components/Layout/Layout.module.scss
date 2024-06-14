@@ -1,0 +1,22 @@
+.layout {
+    height: calc(100vh - 88px);
+    display: flex;
+    justify-content: center;
+    
+    &_background {
+        background-color: var(--gray-background);
+    }
+
+    &__container {
+        padding: 0 64px 32px 64px;
+        width: 100%;
+        max-width: 1440px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+
+        &_padding {
+            padding: 96px 128px;
+        }
+    }
+}

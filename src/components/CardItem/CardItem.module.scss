@@ -1,0 +1,91 @@
+.cardItem {
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    gap: 48px;
+    border-radius: 24px;
+    background-color: var(--white);
+
+    &__contentBox {
+        display: flex;
+        gap: 64px;
+    }
+
+    &__mainInfoWrap {
+        width: 100%;
+    }
+
+    &__mainInfoInner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__subtitle {
+        line-height: 150%;
+        color: var(--gray);
+    }
+
+    &__contentWrap,
+    &__contentInner {
+        display: flex;
+        align-items: center;
+
+        &_gap {
+            gap: 32px;
+        }
+    }
+
+    &__content {
+        margin-left: 8px;
+    }
+
+    &__accent {
+        color: var(--green);
+    }
+    &__title {
+        font-size: 24px;
+        line-height: 100%;
+        margin-bottom: 32px;
+    }
+
+    &__list {
+        display: flex;
+        gap: 8px;
+
+        &_listInfo {
+            flex-direction: column;
+            margin-bottom: 16px;
+        }
+    }
+
+    &__text {
+        line-height: 150%;
+    }
+    
+    &__span {
+        color: var(--gray);
+    }
+    
+    &__underline {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+    }
+
+    &__button {
+        line-height: 150%;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        margin-bottom: 32px;
+    }
+
+    &__itemLevel {
+        border: 1px solid var(--gray-filters);
+        border-radius: 35px;
+        padding: 8px 12px;
+        height: 32px;
+        font-size: 14px;
+        line-height: 114%;
+        display: flex;
+        align-items: center;
+    }
+}
