@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 
 import scss from './HomePage.module.scss';
+import homePageImage from '../../images/homePage_img.png';
 
 
 const HomePage = () => {
-// `${scss.header__link} ${isActive ? scss.header__link_active : ''}`}
+
   return (
     <div className={scss.homePage}>
       <div className={scss.homePage__wrap}>
@@ -16,7 +17,7 @@ const HomePage = () => {
           <NavLink to='/teachers' className={scss.homePage__link}>Get started</NavLink>
         </div>
         <div className={`${scss.homePage__box} ${scss.homePage__box_img}`}>
-          <img className={scss.homePage__image} src='src/images/home-img.png' alt='Girl with apple device' width='391' height='578'/>
+          <img className={scss.homePage__image} src={homePageImage} alt='Girl with apple device' width='391' height='578'/>
         </div>
       </div>
       <ul className={scss.homePage__list}>

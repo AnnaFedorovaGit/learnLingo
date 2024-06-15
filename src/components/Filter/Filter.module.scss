@@ -31,4 +31,9 @@
             line-height: 111%;
         }
     }
+
+    &__icon {
+        fill: transparent;
+        stroke: var(--main-dark);
+    }
 }

@@ -1,19 +1,31 @@
 .layout {
-    height: calc(100vh - 88px);
     display: flex;
     justify-content: center;
-    
+
     &_background {
         background-color: var(--gray-background);
     }
 
     &__container {
+        height: calc(100vh - 88px);
         padding: 0 64px 32px 64px;
         width: 100%;
         max-width: 1440px;
-        // display: flex;
-        // align-items: center;
-        // justify-content: space-between;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            border-radius: 7px;
+            background-color: var(--blue-background);
+        }
 
         &_padding {
             padding: 96px 128px;

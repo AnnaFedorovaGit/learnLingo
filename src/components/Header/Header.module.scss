@@ -11,6 +11,12 @@
         justify-content: space-between;
     }
 
+    &__logoWrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
     &__logoText {
         font-size: 20px;
         line-height: 120%;
@@ -73,6 +79,9 @@
     &__button {
         font-weight: 700;
         line-height: 125%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
 
         &_registration {
             background-color: var(--main-dark);

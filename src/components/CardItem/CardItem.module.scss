@@ -6,13 +6,32 @@
     border-radius: 24px;
     background-color: var(--white);
 
+    &__imageWrap {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid var(--light-yellow);
+        padding: 9px;
+    }
+
+    &__image {
+        border-radius: 50%;
+    }
+
+    &__iconCircle {
+        position: absolute;
+        top: 14px;
+        right: 22px;
+    }
+
     &__contentBox {
         display: flex;
         gap: 64px;
     }
 
     &__mainInfoWrap {
-        width: 100%;
+        width: calc(100% - 168px);
     }
 
     &__mainInfoInner {
@@ -35,6 +54,11 @@
         }
     }
 
+    &__icon {
+        fill: transparent;
+        stroke: var(--main-dark);
+    }
+
     &__content {
         margin-left: 8px;
     }
@@ -50,6 +74,7 @@
 
     &__list {
         display: flex;
+        flex-wrap: wrap;
         gap: 8px;
 
         &_listInfo {

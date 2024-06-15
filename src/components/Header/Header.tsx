@@ -1,18 +1,13 @@
 import { NavLink } from 'react-router-dom';
 
 import scss from './Header.module.scss';
+import icons from '../../images/icons.svg';
+
 
 // import Logo from '../../images/logo.svg';
 // import { ReactComponent as Logo } from '../../images/logo.svg';
-
-// import { ReactComponent as MySuperCustomIconComponent } from "../../images/logo.svg";
-
-
-// import Logo from "../../images/logo.svg?react";
-// import Logo from "../../images/symbol-defs.svg?react";
-// import { ReactComponent as Logo } from '../../images/symbol-defs.svg';
 // import { ReactComponent as Logo } from '../../images/symbol-defs.svg#icon-logo';
-
+// import { ReactComponent as MySuperCustomIconComponent } from "../../images/logo.svg";
 
 const Header = () => {
 
@@ -21,7 +16,9 @@ const Header = () => {
       <div className={scss.header__container}>
 
         <NavLink to='/' className={scss.header__logoWrap}>
-          {/* <MySuperCustomIconComponent/> */}
+          <svg width='28' height='28'>
+            <use href={`${icons}#icon-logo`}></use>
+          </svg>
           <p className={scss.header__logoText}>LearnLingo</p>
         </NavLink>
           
@@ -33,7 +30,9 @@ const Header = () => {
 
         <div className={scss.header__buttonsWrap}>
           <button className={scss.header__button}>
-            {/* <Logo className={css.logo} /> */}
+            <svg width='20' height='20'>
+              <use href={`${icons}#icon-log-in`}></use>
+            </svg>
             Log in
           </button>
           <button className={`${scss.header__button} ${scss.header__button_registration}`}>Registration</button>
