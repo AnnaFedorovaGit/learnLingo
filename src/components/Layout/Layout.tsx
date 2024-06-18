@@ -1,13 +1,12 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useLocation, Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
-
 import scss from './Layout.module.scss';
 
 
 const Layout = () => {
   const location = useLocation();
-  const [pageName, setPageName] = useState('/');
+  const [pageName, setPageName] = useState<string>('/');
 
   useEffect(() => {
     const path = location.pathname;

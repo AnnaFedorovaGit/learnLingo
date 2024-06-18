@@ -1,15 +1,23 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import useModal from '../../hooks/useModal';
+import Modal from '../../helpers/Modal/Modal';
+import FormLogIn from '../FormLogIn/FormLogIn';
+import FormRegistration from '../FormRegistration/FormRegistration';
 import scss from './Header.module.scss';
 import icons from '../../images/icons.svg';
 
+type FormType = 'logIn' | 'registration';
 
-// import Logo from '../../images/logo.svg';
-// import { ReactComponent as Logo } from '../../images/logo.svg';
-// import { ReactComponent as Logo } from '../../images/symbol-defs.svg#icon-logo';
-// import { ReactComponent as MySuperCustomIconComponent } from "../../images/logo.svg";
 
 const Header = () => {
+  const { isModalOpen, openModal, closeModal } = useModal();
+  const [modalContent, setModalContent] = useState<FormType | null>(null);
+
+  const handleOpenModal = (formType: FormType) => { 
+    setModalContent(formType);
+    openModal();
+  }
 
   return (
     <header className={scss.header}>
@@ -29,14 +37,21 @@ const Header = () => {
         </nav>
 
         <div className={scss.header__buttonsWrap}>
-          <button className={scss.header__button}>
+          <button className={scss.header__button} onClick={() => handleOpenModal('logIn')}>
             <svg width='20' height='20'>
               <use href={`${icons}#icon-log-in`}></use>
             </svg>
             Log in
           </button>
-          <button className={`${scss.header__button} ${scss.header__button_registration}`}>Registration</button>
+          <button className={`${scss.header__button} ${scss.header__button_registration}`} onClick={() => handleOpenModal('registration')}>Registration</button>
         </div>
+
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <>
+            {modalContent === 'logIn' && <FormLogIn />}
+            {modalContent === 'registration' && <FormRegistration/>}
+          </>
+        </Modal>
 
       </div>  
     </header>
