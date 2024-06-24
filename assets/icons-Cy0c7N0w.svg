@@ -20,6 +20,14 @@
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2"
                 d="M1.333 1.333l29.333 29.333"></path>
         </symbol>
+        <symbol id="icon-eye-on" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                d="M1.333 16s5.333-10.667 14.667-10.667 14.667 10.667 14.667 10.667"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                d="M1.333 16s5.333 10.667 14.667 10.667 14.667-10.667 14.667-10.667"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
+                d="M20 16c0 2.209-1.791 4-4 4s-4-1.791-4-4c0-2.209 1.791-4 4-4s4 1.791 4 4z"></path>
+        </symbol>
         <symbol id="icon-close-big" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4"
                 d="M28.8 3.2l-25.6 25.6"></path>
