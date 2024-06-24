@@ -2,14 +2,14 @@ import { useEffect, useRef } from 'react';
 import scss from './Modal.module.scss';
 import icons from '../../images/icons.svg';
 
-interface Props { 
+interface IProps { 
     isOpen: boolean;
     onClose: () => void;
     children: JSX.Element;
 }
 
 
-const Modal = ({ isOpen, onClose, children }: Props) => {
+const Modal = ({ isOpen, onClose, children }: IProps) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -19,12 +19,12 @@ const Modal = ({ isOpen, onClose, children }: Props) => {
       }
     };
     document.addEventListener('keydown', closeModal);
-
+    
     return () => {
       document.removeEventListener('keydown', closeModal);
     };
   }, [onClose]);
-
+  
   const handleClickOutside = (e: React.MouseEvent): void => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       onClose();

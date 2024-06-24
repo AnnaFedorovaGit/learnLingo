@@ -10,15 +10,4 @@
         display: flex;
         justify-content: center;
     }
-
-    &__button {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 156%;
-        border-radius: 12px;
-        padding: 16px 48px;
-        width: 183px;
-        height: 60px;
-        background-color: var(--main-yellow);
-    }
 }

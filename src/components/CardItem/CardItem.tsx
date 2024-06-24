@@ -1,13 +1,13 @@
-import { Teacher } from '../../interfaces/intarfaces';
+import { ITeacher } from '../../interfaces/intarfaces';
 
 import scss from './CardItem.module.scss';
 import icons from '../../images/icons.svg';
 
-interface Props {
-  teacher: Teacher;
+interface IProps {
+  teacher: ITeacher;
 }
 
-const CardItem = ({ teacher }: Props) => {
+const CardItem = ({ teacher }: IProps) => {
   const { avatar_url, name, surname, lessons_done, rating, price_per_hour, languages, lesson_info, conditions, levels } = teacher;
 
   return (

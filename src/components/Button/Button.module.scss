@@ -1,0 +1,41 @@
+@mixin button-color($background-color, $text-color) {
+    background-color: $background-color;
+    color: $text-color;
+}
+
+.button {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.button_light {
+    @include button-color(var(--main-yellow), var(--main-dark));
+}
+
+.button_dark {
+    @include button-color(var(--main-dark), var(--white));
+}
+
+.button_accent {
+    @include button-color(var(--blue-button), var(--main-dark));
+}
+
+.button_small {
+    height: 48px; 
+    padding: 14px 39px;  
+}
+
+.button_medium {
+    height: 60px;
+    padding: 16px 48px;
+}
+
+.button_big {
+    height: 60px;
+    width: 100%;
+}

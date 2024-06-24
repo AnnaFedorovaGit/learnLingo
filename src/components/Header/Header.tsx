@@ -4,17 +4,18 @@ import useModal from '../../hooks/useModal';
 import Modal from '../../helpers/Modal/Modal';
 import FormLogIn from '../FormLogIn/FormLogIn';
 import FormRegistration from '../FormRegistration/FormRegistration';
+import Button from '../Button/Button';
 import scss from './Header.module.scss';
 import icons from '../../images/icons.svg';
 
-type FormType = 'logIn' | 'registration';
+type TFormType = 'logIn' | 'registration';
 
 
 const Header = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
-  const [modalContent, setModalContent] = useState<FormType | null>(null);
+  const [modalContent, setModalContent] = useState<TFormType | null>(null);
 
-  const handleOpenModal = (formType: FormType) => { 
+  const handleOpenModal = (formType: TFormType) => { 
     setModalContent(formType);
     openModal();
   }
@@ -43,7 +44,7 @@ const Header = () => {
             </svg>
             Log in
           </button>
-          <button className={`${scss.header__button} ${scss.header__button_registration}`} onClick={() => handleOpenModal('registration')}>Registration</button>
+          <Button type='submit' color='dark' size='small' onClick={() => handleOpenModal('registration')}>Registration</Button>
         </div>
 
         <Modal isOpen={isModalOpen} onClose={closeModal}>

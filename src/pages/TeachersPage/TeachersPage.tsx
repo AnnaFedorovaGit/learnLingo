@@ -1,10 +1,10 @@
-import { Teacher } from '../../interfaces/intarfaces';
+import { ITeacher } from '../../interfaces/intarfaces';
 import CardItem from '../../components/CardItem/CardItem';
 import Filter from '../../components/Filter/Filter';
+import Button from '../../components/Button/Button';
+import scss from './TeachersPage.module.scss';
 
 import teachers from '../../api/teachers.json';
-
-import scss from './TeachersPage.module.scss';
 
 
 const TeachersPage = () => {
@@ -13,12 +13,12 @@ const TeachersPage = () => {
     <div className={scss.teachersPage}>
       <Filter />
       <ul className={scss.teachersPage__list}>
-        {teachers.map((teacher: Teacher, index: number) => 
+        {teachers.map((teacher: ITeacher, index: number) => 
           <CardItem key={index} teacher={teacher} />
         )}
       </ul>
       <div className={scss.teachersPage__buttonWrap}>
-        <button className={scss.teachersPage__button}>Load more</button>
+        <Button type='submit' color='light' size='medium'>Load more</Button>
       </div>
     </div>
   );
