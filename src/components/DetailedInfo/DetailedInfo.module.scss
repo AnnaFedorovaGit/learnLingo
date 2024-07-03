@@ -1,0 +1,42 @@
+.detailedInfo {
+    &__text {
+        font-weight: 400;
+        line-height: 150%;
+    }
+
+    &__list {
+        margin: 32px 0;
+        gap: 32px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__box {
+       display: flex;
+        gap: 12px; 
+        margin-bottom: 16px;
+    }
+
+    &__imageWrap {
+        width: 44px;
+        height: 44px;
+        background-color: var(--blue-background);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__caption {
+        line-height: 150%;
+        color: #8a8a89;
+    }
+
+    &__ratingWrap {
+        display: flex;
+        gap: 8px;
+    }
+
+    &__listWrap {
+        margin-bottom: 32px;
+    }
+}        

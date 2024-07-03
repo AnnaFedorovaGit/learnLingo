@@ -1,14 +1,28 @@
-import { ITeacher } from '../../interfaces/intarfaces';
-
+import { useState } from 'react';
+import { ITeacher } from '../../interfaces/interfaces';
+import DetailedInfo from '../DetailedInfo/DetailedInfo';
+import LevelsList from '../LevelsList/LevelsList';
 import scss from './CardItem.module.scss';
 import icons from '../../images/icons.svg';
+
 
 interface IProps {
   teacher: ITeacher;
 }
 
 const CardItem = ({ teacher }: IProps) => {
-  const { avatar_url, name, surname, lessons_done, rating, price_per_hour, languages, lesson_info, conditions, levels } = teacher;
+  const { avatar_url, name, surname, lessons_done, rating, price_per_hour, languages, lesson_info, conditions } = teacher;
+  const [showAdditionalInfo, setShowAdditionalInfo] = useState<boolean>(false);
+
+  const handleAddToFavourite = (): void => { 
+    // setIsFavourite(!isFavourite);
+  }
+
+  const handleLoadingInfo = (): void => { 
+      setShowAdditionalInfo(true);
+  } 
+
+  // console.log(teacher);
 
   return (
     <li className={scss.cardItem}>
@@ -41,7 +55,8 @@ const CardItem = ({ teacher }: IProps) => {
               <p>Price / 1 hour: <span className={scss.cardItem__accent}>{price_per_hour}$</span></p>
             </div>
 
-            <button>
+            <button onClick={() => handleAddToFavourite()}>
+              {/* <svg style={isFavourite === true ? {fill : 'var(--main-yellow)', stroke: 'var(--main-yellow)'} : { }} className={scss.cardItem__icon} width='26' height='26'> */}
               <svg className={scss.cardItem__icon} width='26' height='26'>
                 <use href={`${icons}#icon-heart`}></use>
               </svg>
@@ -64,13 +79,19 @@ const CardItem = ({ teacher }: IProps) => {
           </li>
         </ul>
 
-        <button className={scss.cardItem__button}>Read more</button>
+        {!showAdditionalInfo && 
+          <button className={scss.cardItem__button} onClick={() => handleLoadingInfo()}>Read more</button>
+        }
 
-        <ul className={scss.cardItem__list}>
-          {levels.map((level, index) => 
-            <li key={index} className={scss.cardItem__itemLevel}>#{level}</li>
-          )}
-        </ul>
+        {showAdditionalInfo &&
+          <div className={`${showAdditionalInfo ? scss.cardItem__appearAnimation : ''}`}>
+            <DetailedInfo teacher={teacher} />
+          </div>
+        }
+
+        {!showAdditionalInfo &&
+          <LevelsList teacher={teacher} />
+        }
       </div>
     </li>
   );

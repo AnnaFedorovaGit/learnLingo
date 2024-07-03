@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { auth } from '../../../firebase.config';
+import { signOut } from 'firebase/auth';
 import useModal from '../../hooks/useModal';
 import Modal from '../../helpers/Modal/Modal';
 import FormLogIn from '../FormLogIn/FormLogIn';
@@ -20,6 +22,17 @@ const Header = () => {
     openModal();
   }
 
+  console.log(auth?.currentUser?.email);
+
+  const handleLoguot = async () => {
+    try {
+      await signOut(auth);
+      console.log(auth);
+    } catch(error) { 
+      console.error(error);
+    }
+  };
+
   return (
     <header className={scss.header}>
       <div className={scss.header__container}>
@@ -38,6 +51,12 @@ const Header = () => {
         </nav>
 
         <div className={scss.header__buttonsWrap}>
+          <button className={scss.header__button} onClick={() => handleLoguot()}>
+            <svg width='20' height='20'>
+              <use href={`${icons}#icon-log-in`}></use>
+            </svg>
+            Log out
+          </button>
           <button className={scss.header__button} onClick={() => handleOpenModal('logIn')}>
             <svg width='20' height='20'>
               <use href={`${icons}#icon-log-in`}></use>

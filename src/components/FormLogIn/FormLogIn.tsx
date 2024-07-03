@@ -14,7 +14,7 @@ const FormLogIn = () => {
 
   const schema = Yup.object().shape({
     email: Yup.string().email().required('please enter a valid email'),
-    password: Yup.string().required('this field is required'),
+    password: Yup.string().min(7).required(),
   }) as Yup.AnyObjectSchema;  
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormLogIn>({

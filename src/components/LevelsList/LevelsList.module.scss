@@ -1,0 +1,16 @@
+.levelsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    &__item {
+        border: 1px solid var(--gray-filters);
+        border-radius: 35px;
+        padding: 8px 12px;
+        height: 32px;
+        font-size: 14px;
+        line-height: 114%;
+        display: flex;
+        align-items: center;
+    }
+}
