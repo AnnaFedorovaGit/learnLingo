@@ -56,7 +56,7 @@ const DetailedInfo = ({ teacher }: IProps) => {
       <Button type='submit' color='light' size='medium' onClick={() => handleOpenModal()}>Book trial lesson</Button>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <FormBooking/>
+        <FormBooking teacher={teacher}/>
       </Modal>
     </div>
   );

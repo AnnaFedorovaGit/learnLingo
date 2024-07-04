@@ -1,6 +1,6 @@
 @import '../../scss/mixins';
 
-.formLogIn {
+.formBooking {
     max-width: 565px;
     padding: 64px;
 
@@ -16,6 +16,28 @@
         line-height: 137%;
         color: rgba(18, 20, 23, 0.8);
         margin-bottom: 40px;
+    }
+
+    &__box {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    &____teacherNameWrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__image {
+        border-radius: 50%;
+    }
+
+    &__caption {
+        font-size: 12px;
+        line-height: 133%;
+        color: var(--gray);
     }
 
     &__inputsWrap {
