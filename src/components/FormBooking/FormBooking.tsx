@@ -1,16 +1,18 @@
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ITeacher } from '../../interfaces/interfaces';
 import Button from '../Button/Button';
 import scss from './FormBooking.module.scss';
-// import icons from '../../images/icons.svg';
+import icons from '../../images/icons.svg';
 
 interface IProps {
   teacher: ITeacher;
 }
 
 interface IFormBooking {
+  reason: string,
   name: string,
   email: string;
   phone: string;
@@ -18,9 +20,11 @@ interface IFormBooking {
 
 const FormBooking = ({ teacher }: IProps) => {
   const { avatar_url, name, surname } = teacher;
-  console.log(teacher);
+  const [activeRadioBtn, setActiveRadioBtn] = useState<string>('Career and business');
+  const reasons = ['Career and business', 'Lesson for kids', 'Living abroad', 'Exams and coursework', 'Culture, travel or hobby'];
 
   const schema = Yup.object().shape({
+    reason: Yup.string().required(),
     name: Yup.string().required('this field is required'),
     email: Yup.string().email().required('please enter a valid email'),
     phone: Yup.string().required('this field is required'),
@@ -29,6 +33,15 @@ const FormBooking = ({ teacher }: IProps) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormBooking>({
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => { 
+  }, [activeRadioBtn])
+  
+  const handleChangeRadio = (e): void => {
+    setActiveRadioBtn(e.target.value);
+
+  // dispatch(filterTasksByPriority(e.target.value));
+  };
 
   const onSubmit: SubmitHandler<IFormBooking> = (data) => {
     console.log(data);
@@ -47,11 +60,39 @@ const FormBooking = ({ teacher }: IProps) => {
           <p className={scss.formBooking__teacherName}>{name} {surname}</p>
         </div>
       </div>
-      
-      <form className={scss.formBooking__form} onSubmit={handleSubmit(onSubmit)}>  
+
+      <form className={scss.formBooking__form} onSubmit={handleSubmit(onSubmit)}>
+        <h3 className={scss.formBooking__subject}>What is your main reason for learning English?</h3>
+        <div className={scss.formBooking__radioBtnWrap}>
+
+          <ul className={scss.formBooking__list}>
+            {reasons.map((reason, index) => (
+              <li key={index} className={scss.formBooking__item}>
+                <div className={scss.formBooking__iconWrap}>
+                  <input
+                    id={reason}
+                    name='reason'
+                    type='radio'
+                    value={reason}
+                    onClick={handleChangeRadio}
+                    // onChange={handleChangeRadio}
+                    {...register('reason')}
+                  />
+                  <svg className={`${scss.formBooking__icon} ${activeRadioBtn === reason ? '' : scss.formBooking__icon_disabled}`} width='24' height='24'>
+                    <use href={`${icons}${activeRadioBtn === reason ? '#icon-radio-button-active' : '#icon-radio-button-disabled'}`}></use>
+                  </svg>
+                </div>
+                <label htmlFor={reason} className={scss.formBooking__radioBtnLabel}>
+                  {reason}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
         <div className={scss.formBooking__inputsWrap}>
           <label htmlFor='name'>
-            <input {...register('name')} type='text' placeholder='Full Name' className={scss.formBooking__input} id='name' autoFocus />
+            <input {...register('name')} type='text' placeholder='Full Name' className={scss.formBooking__input} id='name' />
             {errors.name && <span className={scss.formBooking__errorMessage}>{errors.name.message as string}</span>}
           </label>
           <label htmlFor='email'>

@@ -6,15 +6,16 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 9999;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
 
     &__popUp {
         position: relative;
         overflow: hidden;
         background-color: var(--white);
         border-radius: 30px;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
         width: fit-content;
         block-size: fit-content;
     }
