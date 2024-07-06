@@ -5,8 +5,10 @@ import { getDatabase } from "firebase/database";
 // FromFirestoreDatabase:
 // import { getFirestore } from 'firebase/firestore';
 
+const apiKeyData = import.meta.env.API_KEY;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBpPIyxULDzh_N0pb1PTroOEg3drVHUeQA",
+  apiKey: apiKeyData,
   authDomain: "learnlingo-64672.firebaseapp.com",
   databaseURL: "https://learnlingo-64672-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "learnlingo-64672",
