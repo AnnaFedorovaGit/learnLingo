@@ -55,7 +55,7 @@ const CardItem = ({ teacher }: IProps) => {
               <p>Price / 1 hour: <span className={scss.cardItem__accent}>{price_per_hour}$</span></p>
             </div>
 
-            <button onClick={() => handleAddToFavourite()}>
+            <button onClick={handleAddToFavourite}>
               {/* <svg style={isFavourite === true ? {fill : 'var(--main-yellow)', stroke: 'var(--main-yellow)'} : { }} className={scss.cardItem__icon} width='26' height='26'> */}
               <svg className={scss.cardItem__icon} width='26' height='26'>
                 <use href={`${icons}#icon-heart`}></use>
@@ -80,7 +80,7 @@ const CardItem = ({ teacher }: IProps) => {
         </ul>
 
         {!showAdditionalInfo && 
-          <button className={scss.cardItem__button} onClick={() => handleLoadingInfo()}>Read more</button>
+          <button className={scss.cardItem__button} onClick={handleLoadingInfo}>Read more</button>
         }
 
         {showAdditionalInfo &&

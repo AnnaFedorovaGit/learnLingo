@@ -59,7 +59,7 @@ const FormRegistration = () => {
         </div>
         <Button type='submit' size='big' onClick={handleSubmit(onSubmit)}>Sign Up</Button>
       </form>
-      <Button type='submit' size='big' onClick={() => onSubmitWithGoogle()}>Sign Up with Google</Button>
+      <Button type='submit' size='big' onClick={onSubmitWithGoogle}>Sign Up with Google</Button>
     </div>
   );
 };

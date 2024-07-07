@@ -20,10 +20,6 @@ const DetailedInfo = ({ teacher }: IProps) => {
     return rating.toFixed(1); 
   }
 
-  const handleOpenModal = (): void => { 
-    openModal();
-  }
-
   return (
     <div className={scss.detailedInfo}>
       <p className={scss.detailedInfo__text}>{experience}</p>
@@ -53,7 +49,7 @@ const DetailedInfo = ({ teacher }: IProps) => {
         <LevelsList teacher={teacher} />
       </div>
 
-      <Button type='submit' color='light' size='medium' onClick={() => handleOpenModal()}>Book trial lesson</Button>
+      <Button type='submit' color='light' size='medium' onClick={openModal}>Book trial lesson</Button>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <FormBooking teacher={teacher}/>
