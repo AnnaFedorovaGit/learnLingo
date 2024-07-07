@@ -1,0 +1,15 @@
+.formConfirm {
+    max-width: 565px;
+    padding: 64px;
+
+    &__title {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    &__buttonsWrap {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+    }
+}

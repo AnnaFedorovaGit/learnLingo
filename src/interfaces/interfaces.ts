@@ -19,14 +19,15 @@ export interface ITeacher {
     experience : string;
 }
 
+export interface IFormRegistration {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const PENDING = 'PENDING';
 const FULFILLED = 'FULFILLED';
 const REJECTED = 'REJECTED';
-
-// export interface LoadingState {
-//   loading: boolean;
-//   error: Error | null;
-// }
 
 interface LoadingActions<ActionState> {
   pending: ActionCreatorWithoutPayload;
@@ -41,4 +42,3 @@ export const createLoadingActions = <ActionState>(prefix: string) => {
     rejected: createAction(`${prefix}/${REJECTED}`),
     } as LoadingActions<ActionState>;
 };
-// export const fetchLoadingActions = createLoadingActions<Blog[]>('fetchLists');

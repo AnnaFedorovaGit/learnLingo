@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-// import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../redux/store';
 import { ITeacher } from '../../interfaces/interfaces';
-import { useSelector, useDispatch } from 'react-redux';
 import { fetchTeachers } from '../../redux/teachers/operations';
 import { selectAllTeachers } from '../../redux/teachers/selectors';
 // FromFirestoreDatabase:
@@ -11,11 +11,10 @@ import CardItem from '../../components/CardItem/CardItem';
 import Filter from '../../components/Filter/Filter';
 import Button from '../../components/Button/Button';
 import scss from './TeachersPage.module.scss';
-import { AppDispatch } from '../../redux/store';
 
 
 const TeachersPage = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const teachers = useSelector(selectAllTeachers);
 
   useEffect(() => { 

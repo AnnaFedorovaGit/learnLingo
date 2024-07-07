@@ -1,36 +1,24 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { auth } from '../../../firebase.config';
-import { signOut } from 'firebase/auth';
 import useModal from '../../hooks/useModal';
 import Modal from '../../helpers/Modal/Modal';
-import FormLogIn from '../FormLogIn/FormLogIn';
-import FormRegistration from '../FormRegistration/FormRegistration';
 import Button from '../Button/Button';
+import FormRegistration from '../FormRegistration/FormRegistration';
+import FormConfirm from '../FormConfirm/FormConfirm';
+import FormLogIn from '../FormLogIn/FormLogIn';
 import scss from './Header.module.scss';
 import icons from '../../images/icons.svg';
 
-type TFormType = 'logIn' | 'registration';
 
+type TFormType = 'logIn' | 'registration' | 'logOut';
 
 const Header = () => {
   const { isModalOpen, openModal, closeModal } = useModal();
   const [modalContent, setModalContent] = useState<TFormType | null>(null);
 
-  const handleOpenModal = (formType: TFormType) => { 
+  const handleOpenModal = (formType: TFormType): void => {
     setModalContent(formType);
     openModal();
-  }
-
-  console.log(auth?.currentUser?.email);
-
-  const handleLoguot = async () => {
-    try {
-      await signOut(auth);
-      console.log(auth);
-    } catch(error) { 
-      console.error(error);
-    }
   };
 
   return (
@@ -51,7 +39,7 @@ const Header = () => {
         </nav>
 
         <div className={scss.header__buttonsWrap}>
-          <button className={scss.header__button} onClick={() => handleLoguot()}>
+          <button className={scss.header__button} onClick={() => handleOpenModal('logOut')}>
             <svg width='20' height='20'>
               <use href={`${icons}#icon-log-in`}></use>
             </svg>
@@ -66,10 +54,11 @@ const Header = () => {
           <Button type='submit' color='dark' size='small' onClick={() => handleOpenModal('registration')}>Registration</Button>
         </div>
 
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <Modal modalContent={modalContent} isOpen={isModalOpen} onClose={closeModal}>
           <>
-            {modalContent === 'logIn' && <FormLogIn />}
+            {modalContent === 'logIn' && <FormLogIn/>}
             {modalContent === 'registration' && <FormRegistration/>}
+            {modalContent === 'logOut' && <FormConfirm isOpen={isModalOpen} onClose={closeModal}/>}
           </>
         </Modal>
 

@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { teachersReducer } from './teachers/slice';
+import { useDispatch } from 'react-redux';
 // import { useSelector, TypedUseSelectorHook } from 'react-redux';
 // import authReducer from './rootReducer';
 // import { persistReducer } from 'redux-persist';
@@ -31,7 +32,7 @@ export const store = configureStore({
 
 export type AppState = ReturnType<typeof rootReducer>;
 
-export type AppDispatch = typeof store.dispatch;
+type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
-// export const useAppDispatch = () => useDispatch<AppDispatch>();
 // export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;

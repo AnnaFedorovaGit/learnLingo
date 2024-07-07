@@ -1,19 +1,19 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useAppDispatch } from '../../redux/store';
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { auth, googleProvider } from '../../../firebase.config';
-import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
+import { IFormRegistration } from '../../interfaces/interfaces';
+// import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { signUpUser } from '../../redux/auth/operations';
 import InputPassword from '../InputPassword/InputPassword';
 import Button from '../Button/Button';
 import scss from './FormRegistration.module.scss';
 
-interface IFormRegistration {
-  name: string;
-  email: string;
-  password: string;
-}
 
 const FormRegistration = () => {
+  const dispatch = useAppDispatch();
 
   const schema = Yup.object().shape({
     name: Yup.string().required('this field is required'),
@@ -25,26 +25,17 @@ const FormRegistration = () => {
     resolver: yupResolver(schema),
   });
 
-  console.log(auth?.currentUser?.email);
-  console.log(auth?.currentUser?.photoURL);
+  console.log("userEmail = ", auth?.currentUser?.email);
+  console.log("userName = ", auth?.currentUser?.displayName);
 
-  const onSubmit: SubmitHandler<IFormRegistration> = async (data) => {
-    try {
-      const { email, password } = data;
-      await createUserWithEmailAndPassword(auth, email, password);
-      console.log(data);
-      reset();
-    } catch (error) { 
-      console.error(error);
-    }
+  const onSubmit: SubmitHandler<IFormRegistration> = (data) => {
+    dispatch(signUpUser(data)); 
+    reset();
   };
 
   const onSubmitWithGoogle = async () => {
     try {
-      // const { email, password } = data;
       await signInWithPopup(auth, googleProvider);
-      // console.log(data);
-      // reset();
     } catch (error) { 
       console.error(error);
     }
@@ -54,7 +45,6 @@ const FormRegistration = () => {
     <div className={scss.formRegistration}>
       <h2 className={scss.formRegistration__title}>Registration</h2>
       <p className={scss.formRegistration__text}>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</p>
-      {/* <form className={scss.formRegistration__form} onSubmit={handleSubmit(onSubmit)}>   */}
       <form className={scss.formRegistration__form}>  
         <div className={scss.formRegistration__inputsWrap}>
           <label htmlFor='name'>
