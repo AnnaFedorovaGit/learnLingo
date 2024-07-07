@@ -7,7 +7,7 @@ interface IProps {
   isOpen: boolean;
   onClose: () => void;
   children: JSX.Element;
-  modalContent: string;
+  modalContent?: string;
 }
 
 const Modal = ({ isOpen, onClose, children, modalContent }: IProps) => {
